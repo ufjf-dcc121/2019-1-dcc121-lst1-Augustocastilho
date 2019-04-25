@@ -7,8 +7,8 @@
     <body>
         <div id="x">7</div>
         <div id="y">5</div>
-        <div id="soma"></div>
         <div id="produto"></div>
+        <div id="soma"></div>
         <button id="calcular">Calcular</button>
         <script>
             var x = document.getElementById("x");
@@ -18,7 +18,11 @@
             var botao = document.getElementById("calcular");
             x.contentEditable = true;
             y.contentEditable = true;
-            
+            botao = addEventListener("click", bot);
+            function bot(){
+                produto.textContent = 'O produto de '+x.textContent+' e '+y.textContent+' é '+x.textContent*y.textContent+'!'
+                soma.innerHTML = 'A soma de '+x.innerHTML+' e '+y.innerHTML+' é '+(parseInt(x.innerHTML)+parseInt(y.innerHTML))+'!'
+            }
         </script>
     </body>
 </html>
