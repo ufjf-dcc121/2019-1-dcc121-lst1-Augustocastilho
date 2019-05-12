@@ -8,10 +8,10 @@
         <main>
             <h1>Resultado da Avaliação</h1>
             <p>Olá <span id="nome">Fulano</span>, você está matriculado há <span id="tempo">2</span> anos no curso de Confeitaria e as notas das suas disciplinas são: <span id="confeitaria">70</span> em Confeitaria Básica; <span id="coberturas">80</span> em Coberturas e <span id="broas">60</span> em Broas e Bolos.</p>
-            <p id="resultado"></p>
+            <p id="resultado"> </p>
             <button id="avaliar">Avaliar</button>
             <button id="limpar">Limpar</button>
-            <p id="melhorias"></p>
+            <p id="melhorias"> </p>
 
             <script>
                 var nome = document.getElementById("nome");
@@ -23,19 +23,30 @@
                 var botaoLimpar = document.getElementById("limpar");
                 var resultado = document.getElementById("resultado");
                 var melhorias = document.getElementById("melhorias");
-                var media;
+                var media = 70.0;
 
                 nome.contentEditable = true;
                 anos.contentEditable = true;
-                confeitaria.contentEditable = true;
+                confeitaria.contentEditable = true; 
                 coberturas.contentEditable = true;
                 bolos.contentEditable = true;
 
                 botaoLimpar.addEventListener("click", limparClick);
+                botaoAvaliar.addEventListener("click", avaliarClick);
 
                 function limparClick(){
                     resultado.textContent = " ";
                     melhorias.textContent = " ";
+                }
+                function avaliarClick(){
+                    media = (parseFloat(confeitaria.innerHTML)+parseFloat(coberturas.innerHTML)+parseFloat(bolos.innerHTML))/3;
+                    if (media>=70.0)
+                    {
+                        resultado.innerHTML = "Parabéns "+nome.innerHTML+"! Você está aprovado com média "+media+"!";
+                    }
+                    else{
+                        resultado.innerHTML = "Você está reprovado com média "+media+"!";
+                    }
                 }
             </script>
         </main>
